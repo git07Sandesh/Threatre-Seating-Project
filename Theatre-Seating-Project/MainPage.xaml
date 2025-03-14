@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Theatre_Seating_Project.MainPage">
+
+     <VerticalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="Center" MaximumWidthRequest="1000">
+            <Grid x:Name="grdSeatingView" RowSpacing="10" ColumnSpacing="10" 
+                  Margin="25" HorizontalOptions="Center" WidthRequest="600" />
+
+
+            <HorizontalStackLayout x:Name="layoutSeatingControls" Margin="25" Spacing="25">
+                <Button Text="Reserve a Seat" Clicked="ButtonReserveSeat"/>
+                <Button Text="Reserve a Seat Range" Clicked="ButtonReserveRange"/>
+                <Button Text="Cancel Reservation" Clicked="ButtonCancelReservation"/>
+                <Button Text="Cancel Reservation Range" Clicked="ButtonCancelReservationRange"/>
+                <Button Text="Reset Seating Chart" Clicked="ButtonResetSeatingChart"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+
+    </VerticalStackLayout>
+
+</ContentPage>

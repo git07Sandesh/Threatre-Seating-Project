@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="Theatre-Seating-Project.app/Contents/MacOS/Theatre-Seating-Project">
+      <IsAppExtension>false</IsAppExtension>
+      <BCSymbolMapName>Theatre-Seating-Project.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>Theatre-Seating-Project.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/sandeshbhattarai/Theatre-Seating-Project/Theatre-Seating-Project/obj/Debug/net9.0-maccatalyst/maccatalyst-x64/mtouch-symbols.list</SymbolFile>
+      <DSymName>Theatre-Seating-Project.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/sandeshbhattarai/Theatre-Seating-Project/Theatre-Seating-Project</SourceProjectPath>
+      <IsXPCService></IsXPCService>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
