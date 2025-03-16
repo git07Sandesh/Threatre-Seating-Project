@@ -131,22 +131,35 @@ namespace Theatre_Seating_Project;
             var seat = await DisplayPromptAsync("Enter Seat Number", "Enter seat number: ");
 
             if (seat != null)
-            {   //searching seat in chart
+            {   
+                bool correctSeat = false;
+
+                //searching seat in chart
                 for (int i = 0; i < seatingChart.GetLength(0); i++)
                 {
                     for (int j = 0; j < seatingChart.GetLength(1); j++)
                     {
                         if (seatingChart[i, j].Name == seat)
-                        {   //if seat found, cancel reservation
-                            seatingChart[i, j].Reserved = false;
-                            await DisplayAlert("Reservation Canceled", "Your reservation was successfully canceled", "Ok");
-                            RefreshSeating();
-                            return;
+                        {  
+                            correctSeat = true;
+                            if (seatingChart[i,j].Reserved)
+                            { //if seat found, cancel reservation
+                                seatingChart[i, j].Reserved = false;
+                                await DisplayAlert("Reservation Canceled", "Your reservation was successfully canceled", "Ok");
+                                RefreshSeating();
+                                return;
+                            }
+                            else
+                            {  //seat exists but not reserved
+                                await DisplayAlert("Error", "Seat is not reserved.", "Ok");
+                                return;
+                            }
                         }
                     }
                 }
                 //if seat not found
-                await DisplayAlert("Error", "Seat not found.", "Ok");
+                if(!correctSeat)
+                    {await DisplayAlert("Error", "Seat not found.", "Ok");}
             }
         }
 
