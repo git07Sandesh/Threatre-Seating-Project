@@ -123,10 +123,31 @@ namespace Theatre_Seating_Project;
             //a comment
         }
 
-        //Assign to Team 2 Member
-        private void ButtonCancelReservation(object sender, EventArgs e)
-        {
 
+        // Implemented by Dol Raj Bashyal
+        private async void ButtonCancelReservation(object sender, EventArgs e)
+        {
+            //getting seat number from the user
+            var seat = await DisplayPromptAsync("Enter Seat Number", "Enter seat number: ");
+
+            if (seat != null)
+            {   //searching seat in chart
+                for (int i = 0; i < seatingChart.GetLength(0); i++)
+                {
+                    for (int j = 0; j < seatingChart.GetLength(1); j++)
+                    {
+                        if (seatingChart[i, j].Name == seat)
+                        {   //if seat found, cancel reservation
+                            seatingChart[i, j].Reserved = false;
+                            await DisplayAlert("Reservation Canceled", "Your reservation was successfully canceled", "Ok");
+                            RefreshSeating();
+                            return;
+                        }
+                    }
+                }
+                //if seat not found
+                await DisplayAlert("Error", "Seat not found.", "Ok");
+            }
         }
 
         //Assign to Team 3 Member
