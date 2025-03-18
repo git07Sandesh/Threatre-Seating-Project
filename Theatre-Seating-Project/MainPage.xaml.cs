@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.Reflection.Metadata;
 
 namespace Theatre_Seating_Project;
@@ -170,11 +169,50 @@ namespace Theatre_Seating_Project;
         }
 
         //Assign to Team 4 Member
-        private void ButtonResetSeatingChart(object sender, EventArgs e)
+        private async void ButtonResetSeatingChart(object sender, EventArgs e)
         {
+            bool anySeatReserved = false;
+            for (int j = 0; j < seatingChart.GetLength(0); j++)
+            {
+                for (int k = 0; k < seatingChart.GetLength(1); k++)
+                {
+                    if (seatingChart[j, k].Reserved == true)
+                    {
+                        anySeatReserved = true;
+                        break;
+                    }
+                }
+                if (anySeatReserved == true)
+                {
+                    break;
+                }   
+            }
 
+            if (anySeatReserved == false)
+            {
+                await DisplayAlert("ALREADY RESET!!!", "All seat reservations have already been reset.", "OK");
+                return;
+            }
+
+            bool askReset = await DisplayAlert("Confirm RESET Option", "Sure you want to reset all reservations?", "YES", "NO");
+
+            if (askReset == true)
+            {
+                int k = 0;
+                while (k < seatingChart.GetLength(0))
+                {
+                    int j = 0;
+                    while (j < seatingChart.GetLength(1))
+                    {
+                        seatingChart[k, j].Reserved = false;
+                        j++;
+                    }
+                    k++;
+                }
+
+                RefreshSeating();
+
+                await DisplayAlert("RESET SUCCESSFUL!!!", "All seat reservations have been reset now!.", "OK");
+            }
         }
     }
-
-
-
