@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.Reflection.Metadata;
 
 namespace Theatre_Seating_Project;
@@ -117,11 +116,74 @@ namespace Theatre_Seating_Project;
             }
         }
 
-        //Assign to Team 1 Member
-        private void ButtonReserveRange(object sender, EventArgs e)
+        // Implemented by Pappu Jha
+        private async void ButtonReserveRange(object sender, EventArgs e)
         {
-            //a comment
+            var startSeatNum = await DisplayPromptAsync("Reserve Seat Range", "Enter the STARTING seat number:");
+            var endSeatNum = await DisplayPromptAsync("Reserve Seat Range", "Enter the ENDING seat number:");
+
+            if (string.IsNullOrEmpty(startSeatNum) || string.IsNullOrEmpty(endSeatNum))
+            {
+                await DisplayAlert("ERROR!", "EMPTY Seat Numbers.", "OK");
+                return;
+            }
+
+            bool locateStart = false, locateEnd = false;
+            int startRowNum = -1, startColNum = -1, endRowNum = -1, endColNum = -1;
+
+            int m = 0;
+            while (m < seatingChart.GetLength(0))
+            {
+                int n = 0;
+                while (n < seatingChart.GetLength(1))
+                {
+                    if (seatingChart[m, n].Name == startSeatNum)
+                    {
+                        startRowNum = m;
+                        startColNum = n;
+                        locateStart = true;
+                    }
+                    if (seatingChart[m, n].Name == endSeatNum)
+                    {
+                        endRowNum = m;
+                        endColNum = n;
+                        locateEnd = true;
+                    }
+                    n++;
+                }
+                m++;
+            }
+
+            if (locateStart == false || locateEnd == false)
+            {
+                await DisplayAlert("ERROR!", "Either start or end seat or both NOT found.", "OK");
+                return;
+            }
+
+            if (startRowNum != endRowNum)
+            {
+                await DisplayAlert("ERROR!", "SEATS are NOT in the same row.", "OK");
+                return;
+            }
+
+            for (int p = startColNum; p <= endColNum; p++)
+            {
+                if (seatingChart[startRowNum, p].Reserved)
+                {
+                    await DisplayAlert("ERROR!", $"Seat {seatingChart[startRowNum, p].Name} has already been reserved.", "OK");
+                    return;
+                }
+            }
+
+            for (int w = startColNum; w <= endColNum; w++)
+            {
+                seatingChart[startRowNum, w].Reserved = true;
+            }
+
+            RefreshSeating();
+            await DisplayAlert("SUCCESS!", "Seats have been reserved successfully!", "OK");
         }
+
 
 
         // Implemented by Dol Raj Bashyal
@@ -234,12 +296,52 @@ namespace Theatre_Seating_Project;
 
         }
 
-        //Assign to Team 4 Member
-        private void ButtonResetSeatingChart(object sender, EventArgs e)
-        {
 
+        // Implemented by Pappu Jha
+        private async void ButtonResetSeatingChart(object sender, EventArgs e)
+        {
+            bool anySeatReserved = false;
+            for (int j = 0; j < seatingChart.GetLength(0); j++)
+            {
+                for (int k = 0; k < seatingChart.GetLength(1); k++)
+                {
+                    if (seatingChart[j, k].Reserved == true)
+                    {
+                        anySeatReserved = true;
+                        break;
+                    }
+                }
+                if (anySeatReserved == true)
+                {
+                    break;
+                }   
+            }
+
+            if (anySeatReserved == false)
+            {
+                await DisplayAlert("ALREADY RESET!!!", "All seat reservations have already been reset.", "OK");
+                return;
+            }
+
+            bool askReset = await DisplayAlert("Confirm RESET Option", "Sure you want to reset all reservations?", "YES", "NO");
+
+            if (askReset == true)
+            {
+                int k = 0;
+                while (k < seatingChart.GetLength(0))
+                {
+                    int j = 0;
+                    while (j < seatingChart.GetLength(1))
+                    {
+                        seatingChart[k, j].Reserved = false;
+                        j++;
+                    }
+                    k++;
+                }
+
+                RefreshSeating();
+
+                await DisplayAlert("RESET SUCCESSFUL!!!", "All seat reservations have been reset now!.", "OK");
+            }
         }
     }
-
-
-
