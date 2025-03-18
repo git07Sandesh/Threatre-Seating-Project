@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Theatre-Seating-Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+ea1c737aa3d0880bae96afb2edb2a1fc92d069b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+72a9ebe9847d4958dc0ac6c0fe6e70a37bdec098")]
 [assembly: System.Reflection.AssemblyProductAttribute("Theatre-Seating-Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Theatre-Seating-Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
