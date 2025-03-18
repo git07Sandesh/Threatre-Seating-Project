@@ -124,6 +124,7 @@ namespace Theatre_Seating_Project;
         }
 
 
+
         // Implemented by Dol Raj Bashyal
         private async void ButtonCancelReservation(object sender, EventArgs e)
         {
@@ -175,6 +176,3 @@ namespace Theatre_Seating_Project;
 
         }
     }
-
-
-
