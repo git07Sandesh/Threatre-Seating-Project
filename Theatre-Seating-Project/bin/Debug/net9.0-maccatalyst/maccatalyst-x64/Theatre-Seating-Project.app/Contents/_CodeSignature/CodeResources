@@ -10,11 +10,15 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		Uxp4PZhtRLvNYb5WP9aRXcmPkaY=
+		1JREU46FtQ6d+LU0WaRtZAi1SiM=
 		</data>
 		<key>Resources/FluentUI.cs</key>
 		<data>
 		a4931LwQWyxJVaXHNKKnIVb5aLM=
+		</data>
+		<key>Resources/MauiInfo.plist</key>
+		<data>
+		4jZ/pOJGXwmAFXCgk7LRa9BJH58=
 		</data>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -1360,14 +1364,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			g2Mwdy/5XdlsfV/aZFi3l2oqgZcKNDnaYxQai/0ZpvY=
+			3Gj7ToywvnkAt5tCR7tNU/tybw2aVIAH+5gvSKo0ErY=
 			</data>
 		</dict>
 		<key>MonoBundle/Theatre-Seating-Project.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SbTs+hCZrOQWtL+V5wYD8HzAz/ldpglmovXEkfaV6h0=
+			Tm6eWm2kMu9pSo0xoADKcvoceOQ+G6nNL3sjXP2Xkd0=
 			</data>
 		</dict>
 		<key>MonoBundle/WindowsBase.dll</key>
@@ -1647,7 +1651,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I+7ufdgxvnVCqXc6Rmk2/NSJQi4Y9LI3w2Pc77UoKb0=
+			yGMJxclZYaxGWTAIFnbXTzRaYiLo1hWaqZ/CgzefPZM=
 			</data>
 		</dict>
 		<key>Resources/FluentUI.cs</key>
@@ -1655,6 +1659,13 @@
 			<key>hash2</key>
 			<data>
 			tHXIdQgmdh0ic/kPFTzldeIcUsxkJWK7CK5Af9xgNWM=
+			</data>
+		</dict>
+		<key>Resources/MauiInfo.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			D7xF2d/FAU0oXTW+VlzYG1hotU4XDYbby3Tmkh09oro=
 			</data>
 		</dict>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>

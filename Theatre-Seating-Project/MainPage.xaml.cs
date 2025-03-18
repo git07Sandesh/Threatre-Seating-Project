@@ -164,8 +164,73 @@ namespace Theatre_Seating_Project;
         }
 
         //Assign to Team 3 Member
-        private void ButtonCancelReservationRange(object sender, EventArgs e)
+        private async void ButtonCancelReservationRange(object sender, EventArgs e)
         {
+            //Sandesh Bhattarai is working in this feature
+            //getting seat number from the user
+            var seatRange = await DisplayPromptAsync("Cancel Seat Range", "Enter seat range (e.g., A1:A4):");
+                var seats = seatRange.Split(':');
+                string startSeat = seats[0].Trim();
+                string endSeat = seats[1].Trim();
+    
+                int startRow = -1, startCol = -1, endRow = -1, endCol = -1;
+
+                for (int i = 0; i < seatingChart.GetLength(0); i++)
+                {
+                    for (int j = 0; j < seatingChart.GetLength(1); j++)
+                    {
+                        if (seatingChart[i, j].Name == startSeat)
+                        {
+                            startRow = i;
+                            startCol = j;
+                        }
+                        if (seatingChart[i, j].Name == endSeat)
+                        {
+                            endRow = i;
+                            endCol = j;
+
+
+
+
+
+
+                        }
+                    }
+                }
+                if (startRow == -1 || startCol == -1 || endRow == -1 || endCol == -1)
+                {
+                    await DisplayAlert("Error", "One or more seats not found.", "Ok");
+                    return;
+                }
+                
+                if (startRow != endRow)
+                {
+                    await DisplayAlert("Error", "Seats must be in the same row.", "Ok");
+                    return;
+                }
+                
+                if (startCol > endCol)
+                {
+                    await DisplayAlert("Error", "Invalid seat range order.", "Ok");
+                    return;
+                }
+                
+                // Check if all seats in range are reserved
+                for (int j = startCol; j <= endCol; j++)
+                {
+                    if (!seatingChart[startRow, j].Reserved)
+                    {
+                        await DisplayAlert("Error", "One or more seats are not reserved.", "Ok");
+                        return;
+                    }
+                }
+                for (int j = startCol; j <= endCol; j++)
+                {
+                    seatingChart[startRow, j].Reserved = false;
+                }
+                
+                await DisplayAlert("Success", "Reservation canceled for selected seats.", "Ok");
+                RefreshSeating();
 
         }
 
