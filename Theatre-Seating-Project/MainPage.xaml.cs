@@ -13,7 +13,6 @@ namespace Theatre_Seating_Project;
             Name = name;
             Reserved = reserved;
         }
-
     }
 
     public partial class MainPage : ContentPage
@@ -46,7 +45,6 @@ namespace Theatre_Seating_Project;
                         }
                     }
                 }
-
                 await DisplayAlert("Error", "Seat was not found.", "Ok");
             }
         }
@@ -67,7 +65,6 @@ namespace Theatre_Seating_Project;
                 {
                     seatingChart[row, column] = new SeatingUnit(letters[letterIndex] + (column + 1).ToString());
                 }
-
                 letterIndex++;
             }
         }
@@ -107,11 +104,9 @@ namespace Theatre_Seating_Project;
                         seatLabel.BackgroundColor = Color.Parse("#883333");
 
                     }
-
                     Grid.SetRow(seatLabel, row);
                     Grid.SetColumn(seatLabel, column);
                     grdSeatingView.Children.Add(seatLabel);
-
                 }
             }
         }
@@ -174,7 +169,6 @@ namespace Theatre_Seating_Project;
                     return;
                 }
             }
-
             for (int w = startColNum; w <= endColNum; w++)
             {
                 seatingChart[startRowNum, w].Reserved = true;
@@ -183,8 +177,6 @@ namespace Theatre_Seating_Project;
             RefreshSeating();
             await DisplayAlert("SUCCESS!", "Seats have been reserved successfully!", "OK");
         }
-
-
 
         // Implemented by Dol Raj Bashyal
         private async void ButtonCancelReservation(object sender, EventArgs e)
@@ -250,12 +242,6 @@ namespace Theatre_Seating_Project;
                         {
                             endRow = i;
                             endCol = j;
-
-
-
-
-
-
                         }
                     }
                 }
@@ -295,8 +281,6 @@ namespace Theatre_Seating_Project;
                 RefreshSeating();
 
         }
-
-
         // Implemented by Pappu Jha
         private async void ButtonResetSeatingChart(object sender, EventArgs e)
         {
@@ -316,7 +300,6 @@ namespace Theatre_Seating_Project;
                     break;
                 }   
             }
-
             if (anySeatReserved == false)
             {
                 await DisplayAlert("ALREADY RESET!!!", "All seat reservations have already been reset.", "OK");
@@ -338,10 +321,8 @@ namespace Theatre_Seating_Project;
                     }
                     k++;
                 }
-
                 RefreshSeating();
-
-                await DisplayAlert("RESET SUCCESSFUL!!!", "All seat reservations have been reset now!.", "OK");
+                await DisplayAlert("Reset Successful :)!", "Good Job! All seat reservations have been reset.", "DONE");
             }
         }
     }

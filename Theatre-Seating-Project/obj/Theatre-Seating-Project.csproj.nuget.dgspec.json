@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive\\Desktop\\C#\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj": {}
+    "C:\\Users\\LENOVO\\Source\\Repos\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive\\Desktop\\C#\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj": {
+    "C:\\Users\\LENOVO\\Source\\Repos\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive\\Desktop\\C#\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\Source\\Repos\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj",
         "projectName": "Theatre-Seating-Project",
-        "projectPath": "D:\\OneDrive\\Desktop\\C#\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj",
-        "packagesPath": "C:\\Users\\Pappu Jha\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive\\Desktop\\C#\\Threatre-Seating-Project\\Theatre-Seating-Project\\obj\\",
+        "projectPath": "C:\\Users\\LENOVO\\Source\\Repos\\Threatre-Seating-Project\\Theatre-Seating-Project\\Theatre-Seating-Project.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LENOVO\\Source\\Repos\\Threatre-Seating-Project\\Theatre-Seating-Project\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Pappu Jha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,6 +55,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -72,7 +81,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )",
+              "version": "[8.0.8, )",
               "autoReferenced": true
             }
           },
@@ -95,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
@@ -115,7 +124,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )",
+              "version": "[8.0.8, )",
               "autoReferenced": true
             }
           },
@@ -138,7 +147,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
@@ -158,7 +167,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )",
+              "version": "[8.0.8, )",
               "autoReferenced": true
             }
           },
@@ -182,7 +191,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
@@ -214,7 +223,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.31, 10.0.19041.31]"
+              "version": "[10.0.19041.34, 10.0.19041.34]"
             }
           ],
           "frameworkReferences": {
@@ -225,7 +234,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
