@@ -68,48 +68,63 @@ namespace Theatre_Seating_Project;
                 letterIndex++;
             }
         }
+        //Reimplemented by Intiar
+        private async void ButtonReserveRange(object sender, EventArgs e)
+{
+    var startSeatNum = await DisplayPromptAsync("Reserve Seat Range", "Enter the STARTING seat number:");
+    var endSeatNum = await DisplayPromptAsync("Reserve Seat Range", "Enter the ENDING seat number:");
 
-        private void RefreshSeating()
+    if (string.IsNullOrWhiteSpace(startSeatNum) || string.IsNullOrWhiteSpace(endSeatNum))
+    {
+        await DisplayAlert("ERROR!", "Empty seat numbers.", "OK");
+        return;
+    }
+
+    (int row, int col)? start = null;
+    (int row, int col)? end = null;
+
+    for (int row = 0; row < seatingChart.GetLength(0); row++)
+    {
+        for (int col = 0; col < seatingChart.GetLength(1); col++)
         {
-            grdSeatingView.RowDefinitions.Clear();
-            grdSeatingView.ColumnDefinitions.Clear();
-            grdSeatingView.Children.Clear();
+            if (seatingChart[row, col].Name == startSeatNum)
+                start = (row, col);
 
-            for (int row = 0; row < seatingChart.GetLength(0); row++)
-            {
-                var grdRow = new RowDefinition();
-                grdRow.Height = 50;
-
-                grdSeatingView.RowDefinitions.Add(grdRow);
-
-                for (int column = 0; column < seatingChart.GetLength(1); column++)
-                {
-                    var grdColumn = new ColumnDefinition();
-                    grdColumn.Width = 50;
-
-                    grdSeatingView.ColumnDefinitions.Add(grdColumn);
-
-                    var text = seatingChart[row, column].Name;
-
-                    var seatLabel = new Label();
-                    seatLabel.Text = text;
-                    seatLabel.HorizontalOptions = LayoutOptions.Center;
-                    seatLabel.VerticalOptions = LayoutOptions.Center;
-                    seatLabel.BackgroundColor = Color.Parse("#333388");
-                    seatLabel.Padding = 10;
-
-                    if (seatingChart[row, column].Reserved == true)
-                    {
-                        //Change the color of this seat to represent its reserved.
-                        seatLabel.BackgroundColor = Color.Parse("#883333");
-
-                    }
-                    Grid.SetRow(seatLabel, row);
-                    Grid.SetColumn(seatLabel, column);
-                    grdSeatingView.Children.Add(seatLabel);
-                }
-            }
+            if (seatingChart[row, col].Name == endSeatNum)
+                end = (row, col);
         }
+    }
+
+    if (start == null || end == null)
+    {
+        await DisplayAlert("ERROR!", "Start or end seat not found.", "OK");
+        return;
+    }
+
+    var (startRow, startCol) = start.Value;
+    var (endRow, endCol) = end.Value;
+
+    // Only allow reservation if the range is within the same row
+    if (startRow != endRow)
+    {
+        await DisplayAlert("ERROR!", "Can only reserve seats in the same row.", "OK");
+        return;
+    }
+
+    if (startCol > endCol)
+    {
+        // Swap to make sure we go left-to-right
+        (startCol, endCol) = (endCol, startCol);
+    }
+
+    for (int col = startCol; col <= endCol; col++)
+    {
+        seatingChart[startRow, col].Reserved = true;
+    }
+
+    await DisplayAlert("SUCCESS!", $"Seats {startSeatNum} to {endSeatNum} reserved!", "OK");
+    RefreshSeating();
+}
 
         // Implemented by Pappu Jha
         private async void ButtonReserveRange(object sender, EventArgs e)
